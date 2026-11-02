@@ -6,7 +6,7 @@ title: >
 abbrev: >
   CBOR Diagnostic Notation: "cri" 
 category: std
-docname: draft-bormann-core-cri-diagnostic-notation
+docname: draft-bormann-core-cri-diagnostic-notation-latest
 submissiontype: IETF
 consensus: true
 area: WIT
