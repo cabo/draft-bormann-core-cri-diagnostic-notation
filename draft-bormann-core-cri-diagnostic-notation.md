@@ -4,21 +4,21 @@ v: 3
 title: >
   CBOR Diagnostic Notation: "cri" Application-oriented Extension
 abbrev: >
-  CBOR Diagnostic Notation: "cri" 
+  CBOR Diagnostic Notation: "cri"
 category: std
 docname: draft-bormann-core-cri-diagnostic-notation-latest
 submissiontype: IETF
 consensus: true
-area: WIT
-workgroup: CoRE Working Group
+area: "Web and Internet Transport"
+workgroup: "Constrained RESTful Environments"
 keyword:
  - URI
  - CRI
  - Constrained Devices
  - URI Scheme
 venue:
-  mail: core@ietf.org
-  github: cabo/draft-bormann-core-cri-diagnostic-notation
+  mail: "core@ietf.org"
+  github: "cabo/draft-bormann-core-cri-diagnostic-notation"
 
 
 author:
@@ -86,7 +86,7 @@ Identifiers (CRI), as defined in RFC-to-be 9988.
 
 {::boilerplate bcp14-tagged-bcp14}
 
- 
+
 Concise Resource Identifiers: The "cri" Extension {#cri}
 =================================
 
@@ -123,7 +123,7 @@ is equivalent to
 See {{cri-grammar}} for an ABNF {{STD68}} definition for the content of `cri` literals.
 
 
- 
+
 ## cri: ABNF Definition of URI Representation of a CRI {#cri-grammar}
 
 It can be expected that implementations of the app-extension
