@@ -1,0 +1,336 @@
+
+
+
+
+CoRE Working Group                                            C. Bormann
+Internet-Draft                                    Universität Bremen TZI
+Intended status: Standards Track                         2 November 2026
+Expires: 6 May 2027
+
+
+     CBOR Diagnostic Notation: "cri" Application-oriented Extension
+               draft-bormann-core-cri-diagnostic-notation
+
+Abstract
+
+   For the Concise Binary Object Representation (CBOR), a Concise
+   Diagnostic Notation (CDN) has been defined in draft-ietf-cbor-edn-
+   literals.  This provides an extension point for "App-Extension
+   Identifiers" registry in the "Concise Diagnostic Notation" registry
+   group, supporting text representations of CBOR tags and other
+   structures to enhance usability.
+
+   The present document specifies an app-extension and registers an app-
+   extension identifier for CBOR tag 99, Constrained Resource
+   Identifiers (CRI), as defined in RFC-to-be 9988.
+
+
+   // (This cref will be removed by the RFC editor:) This document
+   // carries the specification of the cri'' application- oriented
+   // prefix for CBOR diagnostic notation.  This specification used to
+   // be in the CoRE WG document for CRIs, became part of the CBOR WG
+   // document for CBOR diagnostic notation when the CBOR WG document
+   // was delayed, and was then deleted from that document as it is
+   // outside the scope of the CBOR WG.  So this document now goes back
+   // to the CoRE WG, as a "new" individual submission.
+
+About This Document
+
+   This note is to be removed before publishing as an RFC.
+
+   Status information for this document may be found at
+   https://datatracker.ietf.org/doc/draft-bormann-core-cri-diagnostic/.
+
+   Discussion of this document takes place on the core Working Group
+   mailing list (mailto:core@ietf.org), which is archived at
+   https://mailarchive.ietf.org/arch/browse/core/.  Subscribe at
+   https://www.ietf.org/mailman/listinfo/core/.
+
+   Source for this draft and an issue tracker can be found at
+   https://github.com/cabo/draft-bormann-core-cri-diagnostic-notation.
+
+Status of This Memo
+
+   This Internet-Draft is submitted in full conformance with the
+   provisions of BCP 78 and BCP 79.
+
+   Internet-Drafts are working documents of the Internet Engineering
+   Task Force (IETF).  Note that other groups may also distribute
+   working documents as Internet-Drafts.  The list of current Internet-
+   Drafts is at https://datatracker.ietf.org/drafts/current/.
+
+   Internet-Drafts are draft documents valid for a maximum of six months
+   and may be updated, replaced, or obsoleted by other documents at any
+   time.  It is inappropriate to use Internet-Drafts as reference
+   material or to cite them other than as "work in progress."
+
+   This Internet-Draft will expire on 6 May 2027.
+
+Copyright Notice
+
+   Copyright (c) 2026 IETF Trust and the persons identified as the
+   document authors.  All rights reserved.
+
+   This document is subject to BCP 78 and the IETF Trust's Legal
+   Provisions Relating to IETF Documents (https://trustee.ietf.org/
+   license-info) in effect on the date of publication of this document.
+   Please review these documents carefully, as they describe your rights
+   and restrictions with respect to this document.  Code Components
+   extracted from this document must include Revised BSD License text as
+   described in Section 4.e of the Trust Legal Provisions and are
+   provided without warranty as described in the Revised BSD License.
+
+Table of Contents
+
+   1.  Introduction
+     1.1.  Conventions and Definitions
+   2.  Concise Resource Identifiers: The "cri" Extension
+     2.1.  cri: ABNF Definition of URI Representation of a CRI
+   3.  Security Considerations
+   4.  IANA Considerations
+     4.1.  Concise Diagnostic Notation App-extension Identifiers
+           Registry
+   5.  Normative References
+   Acknowledgments
+   Author's Address
+
+1.  Introduction
+
+   (To be derived from abstract, q.v.)  [STD94]
+
+1.1.  Conventions and Definitions
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   [BCP14] (RFC2119) (RFC8174) when, and only when, they appear in all
+   capitals, as shown here.
+
+2.  Concise Resource Identifiers: The "cri" Extension
+
+   The app-extension identifier "cri" is used to notate a CDN literal
+   for a CRI reference as defined in [I-D.ietf-core-href].
+
+   The input of the literal is a URI Reference as per [RFC3986] or an
+   IRI Reference as per [RFC3987].
+
+   The value of the literal is a CRI reference that can be converted to
+   the text of the literal using the procedure of Section 6.1 of
+   [I-D.ietf-core-href].  Note that there may be more than one CRI
+   reference that can be converted to the URI/IRI reference given;
+   implementations are expected to favor the simplest variant available
+   and make non-surprising choices otherwise.  In the all-uppercase
+   variant of the app-prefix, the value is enclosed in a tag number 99.
+
+   As an example, the CDN
+
+   cri'https://example.com/bottarga/shaved'
+   CRI'https://example.com/bottarga/shaved'
+
+   is equivalent to
+
+   [-4, ["example", "com"], ["bottarga", "shaved"]]
+   99([-4, ["example", "com"], ["bottarga", "shaved"]])
+
+   See Section 2.1 for an ABNF [STD68] definition for the content of cri
+   literals.
+
+2.1.  cri: ABNF Definition of URI Representation of a CRI
+
+   It can be expected that implementations of the app-extension
+   identifier "cri" will make use of platform-provided URI
+   implementations, which will include a URI parser.
+
+   In case such a URI parser is not available or inconvenient to
+   integrate, a grammar of the content of cri literals is provided by
+   the ABNF for URI-reference in Section 4.1 of RFC 3986 [RFC3986] with
+   certain re-arrangements taken from Section 5.2.4 of
+   [I-D.ietf-cbor-edn-literals]; these are reproduced in Figure 1.  If
+   the content is not ASCII only (i.e., for IRIs), first apply
+   Section 3.1 of [RFC3987] and apply this grammar to the result.
+
+   app-string-cri = URI-reference
+   ; ABNF from RFC 3986:
+
+   URI           = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+
+   hier-part     = "//" authority path-abempty
+                    / path-absolute
+                    / path-rootless
+                    / path-empty
+
+   URI-reference = URI / relative-ref
+
+   absolute-URI  = scheme ":" hier-part [ "?" query ]
+
+   relative-ref  = relative-part [ "?" query ] [ "#" fragment ]
+
+   relative-part = "//" authority path-abempty
+                    / path-absolute
+                    / path-noscheme
+                    / path-empty
+
+   scheme        = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
+
+   authority     = [ userinfo "@" ] host [ ":" port ]
+   userinfo      = *( unreserved / pct-encoded / sub-delims / ":" )
+   host          = IP-literal / IPv4address / reg-name
+   port          = *DIGIT
+
+   IP-literal    = "[" ( IPv6address / IPvFuture  ) "]"
+
+   IPvFuture     = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
+
+   ; Use IPv6address, h16, ls32, IPv4adress, dec-octet as re-arranged
+   ; for PEG Compatibility in Figure 6 of [RFC XXXX]:
+
+   IPv6address   =                            6( h16 ":" ) ls32
+                 /                       "::" 5( h16 ":" ) ls32
+                 / [ h16               ] "::" 4( h16 ":" ) ls32
+                 / [ h16 *1( ":" h16 ) ] "::" 3( h16 ":" ) ls32
+                 / [ h16 *2( ":" h16 ) ] "::" 2( h16 ":" ) ls32
+                 / [ h16 *3( ":" h16 ) ] "::"    h16 ":"   ls32
+                 / [ h16 *4( ":" h16 ) ] "::"              ls32
+                 / [ h16 *5( ":" h16 ) ] "::"              h16
+                 / [ h16 *6( ":" h16 ) ] "::"
+
+   h16           = 1*4HEXDIG
+   ls32          = ( h16 ":" h16 ) / IPv4address
+   IPv4address   = dec-octet "." dec-octet "." dec-octet "." dec-octet
+   dec-octet     = "25" %x30-35         ; 250-255
+                 / "2" %x30-34 DIGIT    ; 200-249
+                 / "1" 2DIGIT           ; 100-199
+                 / %x31-39 DIGIT        ; 10-99
+                 / DIGIT                ; 0-9
+
+   reg-name      = *( unreserved / pct-encoded / sub-delims )
+
+   path          = path-abempty    ; begins with "/" or is empty
+                    / path-absolute   ; begins with "/" but not "//"
+                    / path-noscheme   ; begins with a non-colon segment
+                    / path-rootless   ; begins with a segment
+                    / path-empty      ; zero characters
+
+   path-abempty  = *( "/" segment )
+   path-absolute = "/" [ segment-nz *( "/" segment ) ]
+   path-noscheme = segment-nz-nc *( "/" segment )
+   path-rootless = segment-nz *( "/" segment )
+   path-empty    = 0<pchar>
+
+   segment       = *pchar
+   segment-nz    = 1*pchar
+   segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
+                    ; non-zero-length segment without any colon ":"
+
+   pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
+
+   query         = *( pchar / "/" / "?" )
+
+   fragment      = *( pchar / "/" / "?" )
+
+   pct-encoded   = "%" HEXDIG HEXDIG
+
+   unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"
+   reserved      = gen-delims / sub-delims
+   gen-delims    = ":" / "/" / "?" / "#" / "[" / "]" / "@"
+   sub-delims    = "!" / "$" / "&" / "'" / "(" / ")"
+                    / "*" / "+" / "," / ";" / "="
+
+          Figure 1: ABNF Definition of URI Representation of a CRI
+
+3.  Security Considerations
+
+   TODO Security
+
+4.  IANA Considerations
+
+
+   // RFC Editor: please replace RFC-XXXX with the RFC number of this
+   // RFC, [IANA.concise-diagnostic-notation] with a reference to the
+   // new registry group, and remove this note.
+
+4.1.  Concise Diagnostic Notation App-extension Identifiers Registry
+
+   IANA is requested to register the "cri" app-extension identifier as
+   per Table 1 in the "App-Extension Identifiers" registry in the
+   "Concise Diagnostic Notation" registry group [IANA.concise-
+   diagnostic-notation], with the Change Controller "IETF".
+
+      +===============+=====================+======================+
+      | app-extension | Description         | Reference            |
+      | identifier    |                     |                      |
+      +===============+=====================+======================+
+      | cri           | Constrained         | RFC-XXXX,            |
+      |               | Resource Identifier | [I-D.ietf-core-href] |
+      +---------------+---------------------+----------------------+
+
+                 Table 1: app-extension Identifier "cri"
+
+5.  Normative References
+
+   [BCP14]    Best Current Practice 14,
+              <https://www.rfc-editor.org/info/bcp14>.
+              At the time of writing, this BCP comprises the following:
+
+              Bradner, S., "Key words for use in RFCs to Indicate
+              Requirement Levels", BCP 14, RFC 2119,
+              DOI 10.17487/RFC2119, March 1997,
+              <https://www.rfc-editor.org/info/rfc2119>.
+
+              Leiba, B., "Ambiguity of Uppercase vs Lowercase in RFC
+              2119 Key Words", BCP 14, RFC 8174, DOI 10.17487/RFC8174,
+              May 2017, <https://www.rfc-editor.org/info/rfc8174>.
+
+   [I-D.ietf-cbor-edn-literals]
+              Bormann, C., "Concise Diagnostic Notation (CDN)", Work in
+              Progress, Internet-Draft, draft-ietf-cbor-edn-literals-29,
+              31 October 2026, <https://datatracker.ietf.org/doc/html/
+              draft-ietf-cbor-edn-literals-29>.
+
+   [I-D.ietf-core-href]
+              Bormann, C. and H. Birkholz, "Constrained Resource
+              Identifiers", Work in Progress, Internet-Draft, draft-
+              ietf-core-href-30, 21 November 2025,
+              <https://datatracker.ietf.org/doc/html/draft-ietf-core-
+              href-30>.
+
+   [RFC3986]  Berners-Lee, T., Fielding, R., and L. Masinter, "Uniform
+              Resource Identifier (URI): Generic Syntax", STD 66,
+              RFC 3986, DOI 10.17487/RFC3986, January 2005,
+              <https://www.rfc-editor.org/rfc/rfc3986>.
+
+   [RFC3987]  Duerst, M. and M. Suignard, "Internationalized Resource
+              Identifiers (IRIs)", RFC 3987, DOI 10.17487/RFC3987,
+              January 2005, <https://www.rfc-editor.org/rfc/rfc3987>.
+
+   [STD68]    Internet Standard 68,
+              <https://www.rfc-editor.org/info/std68>.
+              At the time of writing, this STD comprises the following:
+
+              Crocker, D., Ed. and P. Overell, "Augmented BNF for Syntax
+              Specifications: ABNF", STD 68, RFC 5234,
+              DOI 10.17487/RFC5234, January 2008,
+              <https://www.rfc-editor.org/info/rfc5234>.
+
+   [STD94]    Internet Standard 94,
+              <https://www.rfc-editor.org/info/std94>.
+              At the time of writing, this STD comprises the following:
+
+              Bormann, C. and P. Hoffman, "Concise Binary Object
+              Representation (CBOR)", STD 94, RFC 8949,
+              DOI 10.17487/RFC8949, December 2020,
+              <https://www.rfc-editor.org/info/rfc8949>.
+
+Acknowledgments
+
+   TODO acknowledge.
+
+Author's Address
+
+   Carsten Bormann
+   Universität Bremen TZI
+   Postfach 330440
+   D-28359 Bremen
+   Germany
+   Phone: +49-421-218-63921
+   Email: cabo@tzi.org

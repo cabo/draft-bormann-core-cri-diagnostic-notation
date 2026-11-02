@@ -4,16 +4,35 @@
 <meta charset="utf-8">
 <meta content="Common,Latin" name="scripts">
 <meta content="initial-scale=1.0" name="viewport">
-<title>TODO - Your title</title>
-<meta content="Your Name Here" name="author">
+<title>CBOR Diagnostic Notation: "cri" Application-oriented Extension</title>
+<meta content="Carsten Bormann" name="author">
 <meta content="
-       TODO Abstract 
+       For the Concise Binary Object Representation (CBOR), a Concise
+Diagnostic Notation (CDN) has been defined in
+draft-ietf-cbor-edn-literals.
+This provides an extension point for &quot;App-Extension Identifiers&quot;
+registry in the &quot;Concise Diagnostic Notation&quot; registry group,
+supporting text representations of CBOR tags and other structures to
+enhance usability. 
+       The present document specifies an app-extension and registers an
+app-extension identifier for CBOR tag 99, Constrained Resource
+Identifiers (CRI), as defined in RFC-to-be 9988. 
+       (This cref will be removed by the RFC editor:) 
+This document carries the specification of the cri''
+application-oriented prefix for CBOR diagnostic notation.
+This specification used to be in the CoRE WG document for CRIs,
+became part of the CBOR WG document for CBOR diagnostic notation
+when the CBOR WG document was delayed, and was then deleted from
+that document as it is outside the scope of the CBOR WG.
+So this document now goes back to the CoRE WG, as a &quot;new&quot;
+individual submission. 
     " name="description">
 <meta content="xml2rfc 3.34.1" name="generator">
-<meta content="next generation" name="keyword">
-<meta content="unicorn" name="keyword">
-<meta content="AI-native" name="keyword">
-<meta content="draft-todo-yourname-protocol-latest" name="ietf.draft">
+<meta content="URI" name="keyword">
+<meta content="CRI" name="keyword">
+<meta content="Constrained Devices" name="keyword">
+<meta content="URI Scheme" name="keyword">
+<meta content="draft-bormann-core-cri-diagnostic-notation" name="ietf.draft">
 <!-- Generator version information:
   xml2rfc 3.34.1
     Python 3.14.8
@@ -29,7 +48,7 @@
     requests 2.33.1
     wcwidth 0.9.2
 -->
-<link href="draft-todo-yourname-protocol.xml" rel="alternate" type="application/rfc+xml">
+<link href="draft-bormann-core-cri-diagnostic-notation.xml" rel="alternate" type="application/rfc+xml">
 <link href="#copyright" rel="license">
 <style type="text/css">@font-face {
   font-family: 'Lora';
@@ -1042,11 +1061,11 @@ svg {
 <table class="ears">
 <thead><tr>
 <td class="left">Internet-Draft</td>
-<td class="center">TODO - Abbreviation</td>
+<td class="center">CBOR Diagnostic Notation: "cri"</td>
 <td class="right">November 2026</td>
 </tr></thead>
 <tfoot><tr>
-<td class="left">Here</td>
+<td class="left">Bormann</td>
 <td class="center">Expires 6 May 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
@@ -1055,30 +1074,48 @@ svg {
 <div id="internal-metadata" class="document-information">
 <dl id="identifiers">
 <dt class="label-workgroup">Workgroup:</dt>
-<dd class="workgroup">WG Working Group</dd>
+<dd class="workgroup">CoRE Working Group</dd>
 <dt class="label-internet-draft">Internet-Draft:</dt>
-<dd class="internet-draft">draft-todo-yourname-protocol-latest</dd>
+<dd class="internet-draft">draft-bormann-core-cri-diagnostic-notation</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
 <time datetime="2026-11-02" class="published">2 November 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
-<dd class="intended-status">Informational</dd>
+<dd class="intended-status">Standards Track</dd>
 <dt class="label-expires">Expires:</dt>
 <dd class="expires"><time datetime="2027-05-06">6 May 2027</time></dd>
 <dt class="label-authors">Author:</dt>
 <dd class="authors">
 <div class="author">
-      <div class="author-name">Y. N. Here</div>
-<div class="org">Your Organization Here</div>
+      <div class="author-name">C. Bormann</div>
+<div class="org">Universität Bremen TZI</div>
 </div>
 </dd>
 </dl>
 </div>
-<h1 id="title">TODO - Your title</h1>
+<h1 id="title">CBOR Diagnostic Notation: "cri" Application-oriented Extension</h1>
 <section id="section-abstract">
       <h2 id="abstract"><a href="#abstract" class="selfRef">Abstract</a></h2>
-<p id="section-abstract-1">TODO Abstract<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-1">For the Concise Binary Object Representation (CBOR), a Concise
+Diagnostic Notation (CDN) has been defined in
+draft-ietf-cbor-edn-literals.
+This provides an extension point for "App-Extension Identifiers"
+registry in the "Concise Diagnostic Notation" registry group,
+supporting text representations of CBOR tags and other structures to
+enhance usability.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+<p id="section-abstract-2">The present document specifies an app-extension and registers an
+app-extension identifier for CBOR tag 99, Constrained Resource
+Identifiers (CRI), as defined in RFC-to-be 9988.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
+<p id="section-abstract-3"><span class="cref" id="status">(This cref will be removed by the RFC editor:)<br>
+This document carries the specification of the cri''
+application-oriented prefix for CBOR diagnostic notation.
+This specification used to be in the CoRE WG document for CRIs,
+became part of the CBOR WG document for CBOR diagnostic notation
+when the CBOR WG document was delayed, and was then deleted from
+that document as it is outside the scope of the CBOR WG.
+So this document now goes back to the CoRE WG, as a "new"
+individual submission.</span><a href="#section-abstract-3" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1086,14 +1123,14 @@ svg {
       </h2>
 <p id="section-note.1-1">This note is to be removed before publishing as an RFC.<a href="#section-note.1-1" class="pilcrow">¶</a></p>
 <p id="section-note.1-2">
-        The latest revision of this draft can be found at <span><a href="https://example.com/LATEST">https://example.com/LATEST</a></span>.
-        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-todo-yourname-protocol/">https://datatracker.ietf.org/doc/draft-todo-yourname-protocol/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
+        Status information for this document may be found at <span><a href="https://datatracker.ietf.org/doc/draft-bormann-core-cri-diagnostic/">https://datatracker.ietf.org/doc/draft-bormann-core-cri-diagnostic/</a></span>.<a href="#section-note.1-2" class="pilcrow">¶</a></p>
 <p id="section-note.1-3">
         Discussion of this document takes place on the
-        WG Working Group mailing list (<span><a href="mailto:WG@example.com">mailto:WG@example.com</a></span>),
-        which is archived at <span><a href="https://example.com/WG">https://example.com/WG</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
+        core Working Group mailing list (<span><a href="mailto:core@ietf.org">mailto:core@ietf.org</a></span>),
+        which is archived at <span><a href="https://mailarchive.ietf.org/arch/browse/core/">https://mailarchive.ietf.org/arch/browse/core/</a></span>.
+        Subscribe at <span><a href="https://www.ietf.org/mailman/listinfo/core/">https://www.ietf.org/mailman/listinfo/core/</a></span>.<a href="#section-note.1-3" class="pilcrow">¶</a></p>
 <p id="section-note.1-4">Source for this draft and an issue tracker can be found at
-        <span><a href="https://github.com/USER/REPO">https://github.com/USER/REPO</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
+        <span><a href="https://github.com/cabo/draft-bormann-core-cri-diagnostic-notation">https://github.com/cabo/draft-bormann-core-cri-diagnostic-notation</a></span>.<a href="#section-note.1-4" class="pilcrow">¶</a></p>
 </section>
 <div id="status-of-memo">
 <section id="section-boilerplate.1">
@@ -1145,15 +1182,30 @@ svg {
 <nav class="toc"><ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1">
             <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="auto internal xref">1</a>.  <a href="#name-introduction" class="internal xref">Introduction</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.1.2.1">
+                <p id="section-toc.1-1.1.2.1.1" class="keepWithNext"><a href="#section-1.1" class="auto internal xref">1.1</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-conventions-and-definitions" class="internal xref">Conventions and Definitions</a></p>
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="auto internal xref">2</a>.  <a href="#name-concise-resource-identifier" class="internal xref">Concise Resource Identifiers: The "cri" Extension</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.2.2.1">
+                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="auto internal xref">2.1</a>.  <a href="#name-cri-abnf-definition-of-uri-" class="internal xref">cri: ABNF Definition of URI Representation of a CRI</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1" class="keepWithNext"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="auto internal xref">3</a>.  <a href="#name-security-considerations" class="internal xref">Security Considerations</a></p>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4">
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-iana-considerations" class="internal xref">IANA Considerations</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-concise-diagnostic-notation" class="internal xref">Concise Diagnostic Notation App-extension Identifiers Registry</a></p>
+</li>
+            </ul>
 </li>
           <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.5">
             <p id="section-toc.1-1.5.1"><a href="#section-5" class="auto internal xref">5</a>.  <a href="#name-normative-references" class="internal xref">Normative References</a></p>
@@ -1173,18 +1225,168 @@ svg {
       <h2 id="name-introduction">
 <a href="#section-1" class="section-number selfRef">1. </a><a href="#name-introduction" class="section-name selfRef">Introduction</a>
       </h2>
-<p id="section-1-1">TODO Introduction<a href="#section-1-1" class="pilcrow">¶</a></p>
+<p id="section-1-1">(To be derived from abstract, q.v.)
+<span>[<a href="#STD94" class="cite xref">STD94</a>]</span><a href="#section-1-1" class="pilcrow">¶</a></p>
+<div id="conventions-and-definitions">
+<section id="section-1.1">
+        <h3 id="name-conventions-and-definitions">
+<a href="#section-1.1" class="section-number selfRef">1.1. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+        </h3>
+<p id="section-1.1-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
+"<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
+described in <span>[<a href="#BCP14" class="cite xref">BCP14</a>]</span> (<a href="#RFC2119" class="auto internal xref">RFC2119</a>) (<a href="#RFC8174" class="auto internal xref">RFC8174</a>) when, and only when, they
+appear in all capitals, as shown here.<a href="#section-1.1-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="conventions-and-definitions">
+</section>
+</div>
+<div id="cri">
 <section id="section-2">
-      <h2 id="name-conventions-and-definitions">
-<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-conventions-and-definitions" class="section-name selfRef">Conventions and Definitions</a>
+      <h2 id="name-concise-resource-identifier">
+<a href="#section-2" class="section-number selfRef">2. </a><a href="#name-concise-resource-identifier" class="section-name selfRef">Concise Resource Identifiers: The "cri" Extension</a>
       </h2>
-<p id="section-2-1">The key words "<span class="bcp14">MUST</span>", "<span class="bcp14">MUST NOT</span>", "<span class="bcp14">REQUIRED</span>", "<span class="bcp14">SHALL</span>", "<span class="bcp14">SHALL NOT</span>", "<span class="bcp14">SHOULD</span>", "<span class="bcp14">SHOULD NOT</span>", "<span class="bcp14">RECOMMENDED</span>", "<span class="bcp14">NOT RECOMMENDED</span>",
-"<span class="bcp14">MAY</span>", and "<span class="bcp14">OPTIONAL</span>" in this document are to be interpreted as
-described in BCP 14 <span>[<a href="#RFC2119" class="cite xref">RFC2119</a>]</span> <span>[<a href="#RFC8174" class="cite xref">RFC8174</a>]</span> when, and only when, they
-appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-1">The
+app-extension identifier "<code>cri</code>" is used to notate
+a CDN literal for a CRI reference as defined in <span>[<a href="#I-D.ietf-core-href" class="cite xref">I-D.ietf-core-href</a>]</span>.<a href="#section-2-1" class="pilcrow">¶</a></p>
+<p id="section-2-2">The input of the literal is a URI Reference as per <span>[<a href="#RFC3986" class="cite xref">RFC3986</a>]</span> or an IRI
+Reference as per <span>[<a href="#RFC3987" class="cite xref">RFC3987</a>]</span>.<a href="#section-2-2" class="pilcrow">¶</a></p>
+<p id="section-2-3">The value of the literal is a CRI reference that can be converted to
+the text of the literal using the procedure of <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-href-30#section-6.1" class="relref">Section 6.1</a> of [<a href="#I-D.ietf-core-href" class="cite xref">I-D.ietf-core-href</a>]</span>.  
+Note that there may be more than one CRI reference that can be
+converted to the URI/IRI reference given; implementations are expected
+to favor the simplest variant available and make non-surprising
+choices otherwise.
+In the all-uppercase variant of the app-prefix, the value is enclosed
+in a tag number 99.<a href="#section-2-3" class="pilcrow">¶</a></p>
+<p id="section-2-4">As an example, the CDN<a href="#section-2-4" class="pilcrow">¶</a></p>
+<div class="lang-cbor-diag sourcecode" id="section-2-5">
+<pre>
+cri'https://example.com/bottarga/shaved'
+CRI'https://example.com/bottarga/shaved'
+</pre><a href="#section-2-5" class="pilcrow">¶</a>
+</div>
+<p id="section-2-6">is equivalent to<a href="#section-2-6" class="pilcrow">¶</a></p>
+<div class="lang-cbor-diag sourcecode" id="section-2-7">
+<pre>
+[-4, ["example", "com"], ["bottarga", "shaved"]]
+99([-4, ["example", "com"], ["bottarga", "shaved"]])
+</pre><a href="#section-2-7" class="pilcrow">¶</a>
+</div>
+<p id="section-2-8">See <a href="#cri-grammar" class="auto internal xref">Section 2.1</a> for an ABNF <span>[<a href="#STD68" class="cite xref">STD68</a>]</span> definition for the content of <code>cri</code> literals.<a href="#section-2-8" class="pilcrow">¶</a></p>
+<div id="cri-grammar">
+<section id="section-2.1">
+        <h3 id="name-cri-abnf-definition-of-uri-">
+<a href="#section-2.1" class="section-number selfRef">2.1. </a><a href="#name-cri-abnf-definition-of-uri-" class="section-name selfRef">cri: ABNF Definition of URI Representation of a CRI</a>
+        </h3>
+<p id="section-2.1-1">It can be expected that implementations of the app-extension
+identifier "<code>cri</code>" will make use of platform-provided URI
+implementations, which will include a URI parser.<a href="#section-2.1-1" class="pilcrow">¶</a></p>
+<p id="section-2.1-2">In case such a URI parser is not available or inconvenient to
+integrate,
+a grammar of the content of <code>cri</code> literals is provided by the
+ABNF for <code>URI-reference</code> in Section <a href="https://rfc-editor.org/rfc/rfc3986#section-4.1" class="relref">4.1</a> of RFC 3986 <span>[<a href="#RFC3986" class="cite xref">RFC3986</a>]</span> with certain
+re-arrangements taken from <span><a href="https://datatracker.ietf.org/doc/html/draft-ietf-cbor-edn-literals-29#section-5.2.4" class="relref">Section 5.2.4</a> of [<a href="#I-D.ietf-cbor-edn-literals" class="cite xref">I-D.ietf-cbor-edn-literals</a>]</span>;
+these are reproduced in <a href="#abnf-grammar-cri" class="auto internal xref">Figure 1</a>.
+If the content is not ASCII only (i.e., for IRIs), first apply
+<span><a href="https://rfc-editor.org/rfc/rfc3987#section-3.1" class="relref">Section 3.1</a> of [<a href="#RFC3987" class="cite xref">RFC3987</a>]</span> and apply this grammar to the result.<a href="#section-2.1-2" class="pilcrow">¶</a></p>
+<span id="name-abnf-definition-of-uri-repr"></span><div id="abnf-grammar-cri">
+<figure id="figure-1">
+          <div class="breakable lang-abnf sourcecode" id="section-2.1-3.1">
+<pre>
+app-string-cri = URI-reference
+; ABNF from RFC 3986:
+
+URI           = scheme ":" hier-part [ "?" query ] [ "#" fragment ]
+
+hier-part     = "//" authority path-abempty
+                 / path-absolute
+                 / path-rootless
+                 / path-empty
+
+URI-reference = URI / relative-ref
+
+absolute-URI  = scheme ":" hier-part [ "?" query ]
+
+relative-ref  = relative-part [ "?" query ] [ "#" fragment ]
+
+relative-part = "//" authority path-abempty
+                 / path-absolute
+                 / path-noscheme
+                 / path-empty
+
+scheme        = ALPHA *( ALPHA / DIGIT / "+" / "-" / "." )
+
+authority     = [ userinfo "@" ] host [ ":" port ]
+userinfo      = *( unreserved / pct-encoded / sub-delims / ":" )
+host          = IP-literal / IPv4address / reg-name
+port          = *DIGIT
+
+IP-literal    = "[" ( IPv6address / IPvFuture  ) "]"
+
+IPvFuture     = "v" 1*HEXDIG "." 1*( unreserved / sub-delims / ":" )
+
+; Use IPv6address, h16, ls32, IPv4adress, dec-octet as re-arranged
+; for PEG Compatibility in Figure 6 of [RFC XXXX]:
+
+IPv6address   =                            6( h16 ":" ) ls32
+              /                       "::" 5( h16 ":" ) ls32
+              / [ h16               ] "::" 4( h16 ":" ) ls32
+              / [ h16 *1( ":" h16 ) ] "::" 3( h16 ":" ) ls32
+              / [ h16 *2( ":" h16 ) ] "::" 2( h16 ":" ) ls32
+              / [ h16 *3( ":" h16 ) ] "::"    h16 ":"   ls32
+              / [ h16 *4( ":" h16 ) ] "::"              ls32
+              / [ h16 *5( ":" h16 ) ] "::"              h16
+              / [ h16 *6( ":" h16 ) ] "::"
+
+h16           = 1*4HEXDIG
+ls32          = ( h16 ":" h16 ) / IPv4address
+IPv4address   = dec-octet "." dec-octet "." dec-octet "." dec-octet
+dec-octet     = "25" %x30-35         ; 250-255
+              / "2" %x30-34 DIGIT    ; 200-249
+              / "1" 2DIGIT           ; 100-199
+              / %x31-39 DIGIT        ; 10-99
+              / DIGIT                ; 0-9
+
+reg-name      = *( unreserved / pct-encoded / sub-delims )
+
+path          = path-abempty    ; begins with "/" or is empty
+                 / path-absolute   ; begins with "/" but not "//"
+                 / path-noscheme   ; begins with a non-colon segment
+                 / path-rootless   ; begins with a segment
+                 / path-empty      ; zero characters
+
+path-abempty  = *( "/" segment )
+path-absolute = "/" [ segment-nz *( "/" segment ) ]
+path-noscheme = segment-nz-nc *( "/" segment )
+path-rootless = segment-nz *( "/" segment )
+path-empty    = 0&lt;pchar&gt;
+
+segment       = *pchar
+segment-nz    = 1*pchar
+segment-nz-nc = 1*( unreserved / pct-encoded / sub-delims / "@" )
+                 ; non-zero-length segment without any colon ":"
+
+pchar         = unreserved / pct-encoded / sub-delims / ":" / "@"
+
+query         = *( pchar / "/" / "?" )
+
+fragment      = *( pchar / "/" / "?" )
+
+pct-encoded   = "%" HEXDIG HEXDIG
+
+unreserved    = ALPHA / DIGIT / "-" / "." / "_" / "~"
+reserved      = gen-delims / sub-delims
+gen-delims    = ":" / "/" / "?" / "#" / "[" / "]" / "@"
+sub-delims    = "!" / "$" / "&amp;" / "'" / "(" / ")"
+                 / "*" / "+" / "," / ";" / "="
+</pre>
+</div>
+<figcaption><a href="#figure-1" class="selfRef">Figure 1</a>:
+<a href="#name-abnf-definition-of-uri-repr" class="selfRef">ABNF Definition of URI Representation of a CRI</a>
+          </figcaption></figure>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="security">
@@ -1195,12 +1397,49 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <p id="section-3-1">TODO Security<a href="#section-3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
-<div id="iana">
+<div id="sec-iana">
 <section id="section-4">
       <h2 id="name-iana-considerations">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-iana-considerations" class="section-name selfRef">IANA Considerations</a>
       </h2>
-<p id="section-4-1">This document has no IANA actions.<a href="#section-4-1" class="pilcrow">¶</a></p>
+<p id="section-4-1"><span class="cref" id="to-be-removed">RFC Editor: please replace RFC-XXXX with the RFC
+number of this RFC, [IANA.concise-diagnostic-notation] with a
+reference to the new registry group, and remove this note.</span><a href="#section-4-1" class="pilcrow">¶</a></p>
+<div id="appext-iana">
+<section id="section-4.1">
+        <h3 id="name-concise-diagnostic-notation">
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-concise-diagnostic-notation" class="section-name selfRef">Concise Diagnostic Notation App-extension Identifiers Registry</a>
+        </h3>
+<p id="section-4.1-1">IANA is requested to register the "cri" app-extension identifier as
+per <a href="#tab-iana" class="auto internal xref">Table 1</a> in the "App-Extension Identifiers" registry in the
+"Concise Diagnostic Notation" registry group
+[IANA.concise-diagnostic-notation], with the Change Controller
+"IETF".<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<span id="name-app-extension-identifier-cr"></span><div id="tab-iana">
+<table class="center" id="table-1">
+          <caption>
+<a href="#table-1" class="selfRef">Table 1</a>:
+<a href="#name-app-extension-identifier-cr" class="selfRef">app-extension Identifier "cri"</a>
+          </caption>
+<thead>
+            <tr>
+              <th class="text-left" rowspan="1" colspan="1">app-extension identifier</th>
+              <th class="text-left" rowspan="1" colspan="1">Description</th>
+              <th class="text-left" rowspan="1" colspan="1">Reference</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-left" rowspan="1" colspan="1">cri</td>
+              <td class="text-left" rowspan="1" colspan="1">Constrained Resource Identifier</td>
+              <td class="text-left" rowspan="1" colspan="1">RFC-XXXX, <span>[<a href="#I-D.ietf-core-href" class="cite xref">I-D.ietf-core-href</a>]</span>
+</td>
+            </tr>
+          </tbody>
+        </table>
+</div>
+</section>
+</div>
 </section>
 </div>
 <div id="sec-normative-references">
@@ -1209,13 +1448,47 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
       </h2>
 <dl class="references">
-<dt id="RFC2119">[RFC2119]</dt>
+<dt id="BCP14">[BCP14]</dt>
       <dd>
-<span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
+<div class="refInstance">Best Current Practice 14, <span>&lt;<a href="https://www.rfc-editor.org/info/bcp14">https://www.rfc-editor.org/info/bcp14</a>&gt;</span>.<br><span>At the time of writing, this BCP comprises the following:</span>
+</div>
+<div class="refInstance" id="RFC2119">
+          <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;</span>. </div>
+<div class="refInstance" id="RFC8174">
+          <span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8174">https://www.rfc-editor.org/info/rfc8174</a>&gt;</span>. </div>
+</dd>
 <dd class="break"></dd>
-<dt id="RFC8174">[RFC8174]</dt>
+<dt id="I-D.ietf-cbor-edn-literals">[I-D.ietf-cbor-edn-literals]</dt>
+      <dd>
+<span class="refAuthor">Bormann, C.</span>, <span class="refTitle">"Concise Diagnostic Notation (CDN)"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-cbor-edn-literals-29</span>, <time datetime="2026-10-31" class="refDate">31 October 2026</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-cbor-edn-literals-29">https://datatracker.ietf.org/doc/html/draft-ietf-cbor-edn-literals-29</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="I-D.ietf-core-href">[I-D.ietf-core-href]</dt>
+      <dd>
+<span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">H. Birkholz</span>, <span class="refTitle">"Constrained Resource Identifiers"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-core-href-30</span>, <time datetime="2025-11-21" class="refDate">21 November 2025</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-core-href-30">https://datatracker.ietf.org/doc/html/draft-ietf-core-href-30</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3986">[RFC3986]</dt>
+      <dd>
+<span class="refAuthor">Berners-Lee, T.</span>, <span class="refAuthor">Fielding, R.</span>, and <span class="refAuthor">L. Masinter</span>, <span class="refTitle">"Uniform Resource Identifier (URI): Generic Syntax"</span>, <span class="seriesInfo">STD 66</span>, <span class="seriesInfo">RFC 3986</span>, <span class="seriesInfo">DOI 10.17487/RFC3986</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3986">https://www.rfc-editor.org/rfc/rfc3986</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="RFC3987">[RFC3987]</dt>
+      <dd>
+<span class="refAuthor">Duerst, M.</span> and <span class="refAuthor">M. Suignard</span>, <span class="refTitle">"Internationalized Resource Identifiers (IRIs)"</span>, <span class="seriesInfo">RFC 3987</span>, <span class="seriesInfo">DOI 10.17487/RFC3987</span>, <time datetime="2005-01" class="refDate">January 2005</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc3987">https://www.rfc-editor.org/rfc/rfc3987</a>&gt;</span>. </dd>
+<dd class="break"></dd>
+<dt id="STD68">[STD68]</dt>
+      <dd>
+<div class="refInstance">Internet Standard 68, <span>&lt;<a href="https://www.rfc-editor.org/info/std68">https://www.rfc-editor.org/info/std68</a>&gt;</span>.<br><span>At the time of writing, this STD comprises the following:</span>
+</div>
+<div class="refInstance" id="RFC5234">
+          <span class="refAuthor">Crocker, D., Ed.</span> and <span class="refAuthor">P. Overell</span>, <span class="refTitle">"Augmented BNF for Syntax Specifications: ABNF"</span>, <span class="seriesInfo">STD 68</span>, <span class="seriesInfo">RFC 5234</span>, <span class="seriesInfo">DOI 10.17487/RFC5234</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc5234">https://www.rfc-editor.org/info/rfc5234</a>&gt;</span>. </div>
+</dd>
+<dd class="break"></dd>
+<dt id="STD94">[STD94]</dt>
     <dd>
-<span class="refAuthor">Leiba, B.</span>, <span class="refTitle">"Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 8174</span>, <span class="seriesInfo">DOI 10.17487/RFC8174</span>, <time datetime="2017-05" class="refDate">May 2017</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc8174">https://www.rfc-editor.org/rfc/rfc8174</a>&gt;</span>. </dd>
+<div class="refInstance">Internet Standard 94, <span>&lt;<a href="https://www.rfc-editor.org/info/std94">https://www.rfc-editor.org/info/std94</a>&gt;</span>.<br><span>At the time of writing, this STD comprises the following:</span>
+</div>
+<div class="refInstance" id="RFC8949">
+          <span class="refAuthor">Bormann, C.</span> and <span class="refAuthor">P. Hoffman</span>, <span class="refTitle">"Concise Binary Object Representation (CBOR)"</span>, <span class="seriesInfo">STD 94</span>, <span class="seriesInfo">RFC 8949</span>, <span class="seriesInfo">DOI 10.17487/RFC8949</span>, <time datetime="2020-12" class="refDate">December 2020</time>, <span>&lt;<a href="https://www.rfc-editor.org/info/rfc8949">https://www.rfc-editor.org/info/rfc8949</a>&gt;</span>. </div>
+</dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -1234,11 +1507,20 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
 <a href="#name-authors-address" class="section-name selfRef">Author's Address</a>
       </h2>
 <address class="vcard">
-        <div dir="auto" class="left"><span class="fn nameRole">Your Name Here</span></div>
-<div dir="auto" class="left"><span class="org">Your Organization Here</span></div>
+        <div dir="auto" class="left"><span class="fn nameRole">Carsten Bormann</span></div>
+<div dir="auto" class="left"><span class="org">Universität Bremen TZI</span></div>
+<div dir="auto" class="left"><span class="street-address">Postfach 330440</span></div>
+<div dir="auto" class="left">
+<span class="postal-code">D-28359</span> <span class="locality">Bremen</span>
+</div>
+<div dir="auto" class="left"><span class="country-name">Germany</span></div>
+<div class="tel">
+<span>Phone:</span>
+<a href="tel:+49-421-218-63921" class="tel">+49-421-218-63921</a>
+</div>
 <div class="email">
 <span>Email:</span>
-<a href="mailto:your.email@example.com" class="email">your.email@example.com</a>
+<a href="mailto:cabo@tzi.org" class="email">cabo@tzi.org</a>
 </div>
 </address>
 </section>
